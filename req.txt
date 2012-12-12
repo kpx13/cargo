@@ -1,6 +1,5 @@
 Django==1.4
 PIL==1.1.7
-South==0.7.5
 django-filebrowser==3.4.3
 django-grappelli==2.3.8
 ipython==0.12.1

@@ -3,10 +3,8 @@
 import os.path
 import sys
 
-DEBUG = True
-#DEBUG = False
-TEMPLATE_DEBUG = DEBUG
-#TEMPLATE_DEBUG = False
+DEBUG = False
+TEMPLATE_DEBUG = False
 
 PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
@@ -168,8 +166,6 @@ AUTH_PROFILE_MODULE = 'users.UserProfile'
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'
 
-#SEND_ALERT_EMAIL = ['Cargo.Info77@gmail.com']
-
 SEND_ALERT_EMAIL = ['m.elagin838@gmail.com']
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'noreply@webgenesis.ru'
@@ -182,4 +178,3 @@ try:
     from settings_local import *
 except ImportError:
     pass
-    #sys.stderr.write('Unable to read settings_local.py\n')
