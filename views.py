@@ -11,7 +11,7 @@ import pages.views
 import rates.views
 import news.views
 
-from order.forms import OrderForm, FeedbackForm
+from order.forms import OrderForm, FeedbackForm, FeedbackMForm
 
 def get_common_context(request):
     c = {}
@@ -25,6 +25,17 @@ def home_page(request):
     c['request_url'] = 'home'
     c['rates'] = rates.views.get_rates()
     c.update(pages.views.get_page('home'))
+    
+    if request.POST:
+        form = FeedbackMForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = FeedbackMForm()
+    else:
+        form = FeedbackMForm()
+
+    c['feedback_form'] = form
+    
     return render_to_response('home.html', c)
 
 def rates_page(request, page_id):

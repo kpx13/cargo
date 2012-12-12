@@ -45,3 +45,41 @@ class QualityFeedback(models.Model):
 
     def __unicode__(self):
         return u'Отзыв о качестве %s от %s' % (self.id, dt.ru_strftime(u"%d %B %Y", self.feedback_date))
+
+class Feedback(models.Model):
+    fio = models.CharField(u'Имя', max_length=150)
+    city = models.CharField(u'Город', max_length=150, blank=True)
+    phone = models.CharField(u'Телефон', max_length=150, blank=True)
+    email = models.EmailField(u'Email', blank=True)
+    comment = models.TextField(u'Текст')
+    feedback_date = models.DateTimeField(u'Дата', auto_now_add=True)
+
+    class Meta:
+        verbose_name = u'feedback'
+        verbose_name_plural = u'feedback'
+        ordering = ['-feedback_date']
+
+    def __unicode__(self):
+        return u'feedback %s от %s' % (self.id, dt.ru_strftime(u"%d %B %Y", self.feedback_date))
+    
+    def save(self, *args, **kwargs):
+        super(Feedback, self).save(*args, **kwargs)
+        
+        from forms import sendmail
+        from django.template import Context, Template
+        
+        subject=u'Поступила новая заявка с сайта',
+    
+        body_templ="""Поступила новая заявка с сайта (по форме обратной связи)\n
+            Контактное лицо - {{ f.fio }}
+            Телефон - {{ f.phone }}
+            Емейл - {{ f.email }}
+            Город - {{ f.city }}
+            Текст - {{ f.comment }}
+            """
+
+        ctx = Context({
+            'f': self
+        })
+        body = Template(body_templ).render(ctx)
+        sendmail(subject, body)

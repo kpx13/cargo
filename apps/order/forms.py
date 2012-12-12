@@ -1,10 +1,11 @@
 # encoding: utf-8
 from django import forms
+from django.forms import ModelForm
 from django.conf import settings
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
 from django.template import Context, Template
-from models import Order, QualityFeedback
+from models import Order, QualityFeedback, Feedback
 
 
 def sendmail(subject, body):
@@ -100,3 +101,9 @@ class FeedbackForm(forms.Form):
         })
         body = Template(body_templ).render(ctx)
         sendmail(subject,body)
+
+
+class FeedbackMForm(ModelForm):
+    class Meta:
+        model = Feedback
+        exclude = ('feedback_date', )

@@ -15,3 +15,4 @@ class FeedbackAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Order, OrderAdmin)
 admin.site.register(models.QualityFeedback, FeedbackAdmin)
+admin.site.register(models.Feedback)

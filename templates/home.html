@@ -102,17 +102,29 @@
           <form action="#" method="post">
             <div class="w1">
               <label for="start">от</label>
-              <input type="text" id="start" size="15" value="Москва"/>
+              <input type="text" id="start" value="Москва"/>
             </div>
             <div class="w1">
               <label for="end">до</label>
-              <input type="text" id="end" size="15" value="Рязань"/>
+              <input type="text" id="end" value="Рязань"/>
             </div>
             <div class="w1">
               <label>км</label>
-              <input type="text" id="resultDistance"value="" class="inp" readonly="" size="15"/>
+              <input type="text" id="resultDistance" value="" class="inp" readonly=""/>
             </div>
             <div class="kn"><input type="button" id="calc_button" value="Посчитать" /></div>
+          </form>
+        </div>
+      </div>
+      
+      
+      <div class="bl_r" style='margin-top: 20px'>
+        <div class="feedback_form lineForm">
+          <h2>ОБРАТНАЯ<br />СВЯЗЬ</h2>
+          <form method="post">
+            {% csrf_token %}
+            {{ feedback_form.as_p }}
+            <div class="kn"><input type="submit" value="Отправить" /></div>
           </form>
         </div>
       </div>
