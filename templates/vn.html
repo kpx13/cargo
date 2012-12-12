@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content-title">
+        <h1>ОФОРМЛЕНИЕ ЗАКАЗА</h1>
+    </div>
+<div class="content-information">
+  <!--    <div class="foto"><img src="/static/images/pic.jpg" alt="" /></div>
+  <div class="left">
+        <div class="rates">
+           <h2>ТАРИФЫ</h2>
+           <ul>
+             <li class="tabl1">
+               <p class="zag">от</p>
+               <p class="sity1"><span>Москва</span></p>
+               <p class="sity1"><span>Москва</span></p>
+               <p class="sity1"><span>Москва</span></p>
+               <p class="sity1"><span>Москва</span></p>
+               <p class="sity1"><span>Москва</span></p>
+               <p class="sity1"><span>Москва</span></p>
+             </li>
+             <li class="tabl2">
+               <p class="zag">до</p>
+               <p class="sity2"><span>Рязань</span></p>
+               <p class="sity2"><span>Cвердловск</span></p>
+               <p class="sity2"><span>Санкт-Петербург</span></p>
+               <p class="sity2"><span>Екатеринбург</span></p>
+               <p class="sity2"><span>Балашиха</span></p>
+               <p class="sity2"><span>Рязань</span></p>
+             </li>
+             <li class="tabl3">
+               <p class="zag">стоимость</p>
+               <p class="sum"><span>1200</span></p>
+               <p class="sum"><span>500</span></p>
+               <p class="sum"><span>5000</span></p>
+               <p class="sum"><span>1800</span></p>
+               <p class="sum"><span>2000</span></p>
+               <p class="sum"><span>1300</span></p>
+             </li>
+           </ul>
+        </div>
+        <div class="regulations">
+            <h2>ПРАВИЛА</h2>
+            <div class="tet">
+                {{ content|safe }}
+            </div>
+        </div>
+    </div>  left -->
+
+    <div class="w100">
+        <div class="ordering">
+            <form name="order" action="" method="post">
+            {% if form.errors %}
+            <div class="w1"><span>Заполните обязательные поля!</span></div>
+            {% endif %}
+             <div class="w1"{% if form.cargo_type.errors %} style="border:solid 1px red;"{% endif %}>
+               <label for="id_cargo_type">{{ form.cargo_type.label }}</label>
+               {{ form.cargo_type }}
+             </div>
+             <div class="w1"{% if form.start_point.errors %} style="border:solid 1px red;"{% endif %}>
+               <label for="id_start_point">{{ form.start_point.label }}</label>
+               {{ form.start_point }}
+             </div>
+             <div class="w1"{% if form.end_point.errors %} style="border:solid 1px red;"{% endif %}>
+               <label for="id_end_point">{{ form.end_point.label }}</label>
+               {{ form.end_point }}
+             </div>
+             <div class="w1"{% if form.cargo_size.errors %} style="border:solid 1px red;"{% endif %}>
+               <label for="id_cargo_size">{{ form.cargo_size.label }}</label>
+               {{ form.cargo_size }}
+             </div>
+             <div class="w1"{% if form.cargo_date.errors %} style="border:solid 1px red;"{% endif %}>
+               <label for="id_cargo_date">{{ form.cargo_date.label }}</label>
+               {{ form.cargo_date }}
+             </div>
+             <div class="w1"{% if form.organization.errors %} style="border:solid 1px red;"{% endif %}>
+               <label for="id_organization">{{ form.organization.label }}</label>
+               {{ form.organization }}
+             </div>
+             <div class="w1"{% if form.contact.errors %} style="border:solid 1px red;"{% endif %}>
+               <label for="id_contact">{{ form.contact.label }}</label>
+               {{ form.contact }}
+             </div>
+             <div class="w1"{% if form.phone.errors %} style="border:solid 1px red;"{% endif %}>
+               <label for="id_phone">{{ form.phone.label }}</label>
+               {{ form.phone }}
+             </div>
+             <div class="w1"{% if form.email.errors %} style="border:solid 1px red;"{% endif %}>
+               <label for="id_email">{{ form.email.label }}</label>
+               {{ form.email }}
+             </div>
+             <div class="w1"{% if form.comment.errors %} style="border:solid 1px red;"{% endif %}>
+               <label for="id_comment">{{ form.comment.label }}</label>
+               {{ form.comment }}
+             </div>
+             <div class="usl"{% if form.agree.errors %} style="border:solid 1px red;"{% endif %}>
+               <span class="niceCheck">{{ form.agree }}</span>
+               <span class="titl">Я согласен(на) с условиями работы.</span>
+             </div>
+             <div class="but"><input type="submit" value="Отправить заказ" /></div>
+             {% csrf_token %}
+            </form>
+        </div>
+    </div> <!-- w100 -->
+
+</div><!-- information -->
+{% endblock %}
+
+

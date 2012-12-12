@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Документ без названия</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="css/cusel.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery-1.6.1.js"></script>
+<script type="text/javascript" src="js/cusel.js"></script>
+<script type="text/javascript" src="js/jScrollPane.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	
+var params = {
+		changedEl: ".lineForm select",
+		visRows: 5,
+		scrollArrows: true
+	}
+
+	cuSel(params);
+
+});
+</script>
+</head>
+
+<body>
+<div class="main"><div class="well">
+  <div class="cent">
+    <div class="header">
+      <div class="top">
+        <div class="logo"><a href="#"><img src="images/logo.png" alt="" /></a></div>
+        <div class="search">
+          <form action="#" method="post">
+            <input type="text" value="Поиск по сайту" class="inp_s" onclick="if(this.value=='Поиск по сайту') this.value=''" onblur="if(this.value=='') this.value='Поиск по сайту'" />
+            <input type="image" src="images/kn_s.png" class="kn_s" />
+          </form>
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="#">ГЛАВНАЯ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>     
+            <li class="active"><a href="#">О КОМПАНИИ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+            <li><a href="#">СТРАХОВАНИЕ ГРУЗОВ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>    
+            <li><a href="#">ОТСЛЕЖИВАНИЕ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+            <li><a href="#">ЛИЧНЫЙ КАБИНЕТ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+            <li><a href="#">ЗАКАЗ ОНЛАЙН</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+            <li><a href="#">КОНТАКТЫ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+            <li><a href="#">СХЕМА ПРОЕЗДА</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cont"><div class="cent">
+    <div class="content">
+      <div class="bl_l">
+        <h1>О КОМПАНИИ</h1>
+        <p>Глиссандо, так или иначе, синхронно заканчивает мнимотакт, таким образом конструктивное состояние всей музыкальной ткани или какой-либо из составляющих ее субструктур (в том числе: временнoй, гармонической, динамической, тембровой, темповой) возникает как следствие их выстраивания на основе определенного ряда (модуса). Модальное письмо может быть реализовано на основе принципов центропостоянности и центропеременности,  что отчасти объясняет такое количество кавер-версий.</p>
+      </div>
+      
+      <div class="bl_r">
+        <div class="kalk lineForm">
+          <h2>РАСЧЕТ<br /> СТОИМОСТИ</h2>
+          <form action="#" method="post">
+            <div class="w1">
+              <label>от</label>
+              <select id="s1" name="s1">
+                <option value="1">Москва</option>
+                <option value="2">Москва</option>
+                <option value="3">Москва</option>
+                <option value="4">Москва</option>
+                <option value="5">Москва</option>
+                <option value="6">Москва</option>
+                <option value="7">Москва</option>
+                <option value="8">Москва</option>
+              </select>
+            </div>
+            <div class="w1">
+              <label>до</label>
+              <select id="s2" name="s2">
+                <option value="1">Рязань</option>
+              </select>
+            </div>
+            <div class="w1">
+              <label>км</label>
+              <input type="text" value="70" class="inp" />
+            </div>
+            <div class="kn"><input type="button" value="Посчитать" /></div>
+            <div class="chena"><span>1000 руб.</span></div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="info">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="foto"><img src="images/inf1.jpg" alt="" /></span>
+              <span class="text">Грузоперевозки по Москве</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="foto"><img src="images/inf2.jpg" alt="" /></span>
+              <span class="text">Грузоперевозки по регионам</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="foto"><img src="images/inf3.jpg" alt="" /></span>
+              <span class="text">Куръерская доставка внутренняя</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="foto"><img src="images/inf4.jpg" alt="" /></span>
+              <span class="text">Куръерская доставка междугородняя</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="foto"><img src="images/inf5.jpg" alt="" /></span>
+              <span class="text">Доставка для интернет магазинов</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="nav">
+        <ul>
+          <li><a href="#"><img src="images/item1.png" alt="" class="item1" />Контакты</a></li>
+          <li><a href="#"><img src="images/item2.png" alt="" class="item2" />Заказ онлайн</a></li>
+          <li><a href="#" class="st2"><img src="images/item3.png" alt="" class="item3" />Качество обслуживания</a></li>
+        </ul>
+        <ul>
+          <li><a href="#"><img src="images/item4.png" alt="" class="item4" />Резерв</a></li>
+          <li><a href="#" class="st2"><img src="images/item5.png" alt="" class="item5" />Правила и законы грузоперевозок</a></li>
+          <li><a href="#" class="st2"><img src="images/item6.png" alt="" class="item6" />Терминология курьерской доставки</a></li>
+        </ul>
+        <ul>
+          <li><a href="#"><img src="images/item7.png" alt="" class="item7" />Полезные советы</a></li>
+          <li><a href="#"><img src="images/item8.png" alt="" class="item8" />Новости компании</a></li>
+          <li><a href="#" class="st2"><img src="images/item9.png" alt="" class="item9" />Специальные предложения</a></li>
+        </ul>
+      </div>
+      
+    </div>    
+  </div></div>
+  
+  <div class="foother">
+    <div class="foot">
+      <div class="copyr">© 2012 dostavka.ru</div>
+      <div class="fmenu">
+          <ul>
+            <li><a href="#">ГЛАВНАЯ</a></li>     
+            <li><a href="#">О КОМПАНИИ</a></li>
+            <li><a href="#">СТРАХОВАНИЕ ГРУЗОВ</a></li>    
+            <li><a href="#">ОТСЛЕЖИВАНИЕ</a></li>
+            <li><a href="#">ЛИЧНЫЙ КАБИНЕТ</a></li>
+            <li><a href="#">ЗАКАЗ ОНЛАЙН</a></li>
+            <li><a href="#">КОНТАКТЫ</a></li>
+            <li><a href="#">СХЕМА ПРОЕЗДА</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  
+</div></div>
+</body>
+</html>

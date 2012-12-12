@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='yandex-verification' content='54d69efea396484c' />
+<meta name='yandex-verification' content='68393b0938b54355' />
+<meta name="google-site-verification" content="MuFer73XHGzln8zLICA5i3g2JpBsGlPRYPrKWPYD8IY" />
+<title>{% if title%}{{title}}{%else%}Документ без названия{%endif%}</title>
+<link href="/static/style.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/cusel.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/js/jquery-1.6.1.js"></script>
+<script type="text/javascript" src="/static/js/cusel.js"></script>
+<script type="text/javascript" src="/static/js/jScrollPane.js"></script>
+<script type="text/javascript" src="/static/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="/static/js/jquery.checkbox.js"></script>
+{% block headjs %}{% endblock %}
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+var params = {
+                changedEl: ".lineForm select",
+                visRows: 5,
+                scrollArrows: true
+        }
+
+        cuSel(params);
+
+});
+</script>
+{% block head_script %}{% endblock %}
+
+{%if header_content%}{{header_content|safe}}{%endif%}
+</head>
+
+<body>
+<div class="main" {% block header_logo %}  {% endblock %}><div class="well">
+  <div class="cent">
+    <div class="header">
+      <div class="top">
+        <div class="logo"><a href="/"><img src="/static/images/logo.png" alt="" /></a></div>
+      <!--  <div class="search">
+          <form action="#" method="post">
+            <input type="text" value="Поиск по сайту" class="inp_s" onclick="if(this.value=='Поиск по сайту') this.value=''" onblur="if(this.value=='') this.value='Поиск по сайту'" />
+            <input type="image" src="/static/images/kn_s.png" class="kn_s" />
+          </form>
+        </div>-->
+        <div class="menu">
+          <ul>
+            <li {%if 'home' in request_url %} class='active' {% endif %}><a href="/">ГЛАВНАЯ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+            <li {%if 'offers' in request_url %} class='active' {% endif %}><a href="{% url static_page 'offers' %}">СПЕЦ. ПРЕДЛОЖЕНИЯ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+            <li {%if 'about' in request_url %} class='active' {% endif %}><a href="{% url static_page 'about' %}">О КОМПАНИИ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+            <li {%if 'insurance' in request_url %} class='active' {% endif %}><a href="{% url static_page 'insurance' %}">СТРАХОВАНИЕ ГРУЗОВ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+<!--             <li><a href="#">ОТСЛЕЖИВАНИЕ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li> -->
+<!--             <li><a href="#">ЛИЧНЫЙ КАБИНЕТ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li> -->
+            <li {%if 'order' in request_url %} class='active' {% endif %}><a href="{% url order_page %}">ЗАКАЗ ОНЛАЙН</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+            <li {%if 'contacts' in request_url %} class='active' {% endif %}><a href="{% url static_page 'contacts' %}">КОНТАКТЫ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
+          </ul>
+        </div>
+        <div class="header_phones">
+        <span><h1>Москва: 8(499) 343-89-38, 8(495) 772-22-56</h1></span>
+        <span><h1>Санкт Петербург: 8(812) 642-52-15</h1></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cont"><div class="cent">
+    <div class="content">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+  </div></div>
+
+  <div class="foother">
+    <div class="foot">
+      <div class="copyr">© 2012 cargoexpresstrans.ru<br />
+	<a href='http://webgenesis.ru/' target='blank'>Сайт создан в веб-студии webenesis</a>
+	</div>
+      <div class="fmenu">
+          <ul>
+            <li><a href="/">ГЛАВНАЯ</a></li>
+            <li><a href="{% url static_page 'offers' %}">СПЕЦ. ПРЕДЛОЖЕНИЯ</a></li>
+            <li><a href="{% url static_page 'about' %}">О КОМПАНИИ</a></li>
+            <li><a href="{% url static_page 'insurance' %}">СТРАХОВАНИЕ ГРУЗОВ</a></li>
+            <li><a href="{% url order_page %}">ЗАКАЗ ОНЛАЙН</a></li>
+            <li><a href="{% url static_page 'contacts' %}">КОНТАКТЫ</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+</div></div>
+
+<!-- Yandex.Metrika informer -->
+<a href="http://metrika.yandex.ru/stat/?id=16642936&amp;from=informer"
+target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/16642936/2_1_9BC07BFF_7BA05BFF_0_pageviews"
+style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" onclick="try{Ya.Metrika.informer({i:this,id:16642936,type:0,lang:'ru'});return false}catch(e){}"/></a>
+<!-- /Yandex.Metrika informer -->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter16642936 = new Ya.Metrika({id:16642936, enableAll: true, webvisor:true});
+        } catch(e) { }
+    });
+    
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/16642936" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

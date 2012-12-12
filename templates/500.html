@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/static/style.css" type="text/css" rel="stylesheet" />
+    <title>POLYMER INDUSTRY {{title}}</title>
+
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+    {{header_content|safe}}
+</head>
+<body>
+    <div class='page-container'>
+        <div class='header'>
+            <div class='header-left'>
+                <div class='header-content'>
+                {{about_at_home|safe}}
+                </div>
+            </div>
+            <a href='/'><div class='header-logo'></div></a>
+            <div class='header-right'>
+                <div class='header-content'>
+                {{contacts_at_home|safe}}
+                </div>
+            </div>
+        </div>
+        <div class='on-tape'></div>
+        <div class='tape'>
+            <ul class='main-menu'>
+                <a href='/' {%if 'home' in request_url %} class ='selected' {% endif %}><li>Главная</li></a>
+                <a href='/page/about' {%if 'about' in request_url %} class ='selected' {% endif %}><li>О компании</li></a>
+                <a href='/page/production' {%if 'production' in request_url %} class ='selected' {% endif %}><li>Производство</li></a>
+                <a href='/page/payment' {%if 'payment' in request_url %} class ='selected' {% endif %}><li>Оплата и доставка</li></a>
+                <a href='/page/contacts' {%if 'contacts' in request_url %} class ='selected' {% endif %}><li>Контакты</li></a>
+            </ul>
+        </div>
+        <div class='under-tape'>
+            <div class='banner'></div>
+        </div>
+        <div class='content'>
+            <h2>404</h2>
+            <p>Страница не найдена.</p>
+        </div>
+        <div class='clear'></div>
+        <div class='footer-shadow'></div>
+        <div class='footer'>
+            <div class='footer-content-left'>
+                <br /><br />
+                <div class='footer-menu'>
+                    <a href='/'>Главная</a> &nbsp; | &nbsp;
+                    <a href='/page/about'>О компании</a> &nbsp; | &nbsp;
+                    <a href='/page/production'>Производство</a> &nbsp; | &nbsp;
+                    <a href='/page/payment'>Оплата и доставка</a> &nbsp; | &nbsp;
+                    <a href='/page/contacts'>Контакты</a>
+                    <br /><br />
+                web-master: annkpx@gmail.com <br />
+                designer: skwide@bk.ru
+                </div>
+
+            </ul>
+            </div>
+            <div class='footer-content-border'></div>
+            <div class='footer-content-right'>
+                <br /><br />Телефон<br />
+                +7 (495) 518-55-990 <br />
+                SCROLL-HALL@YANDEX.RU
+
+            </div>
+        </div>
+        <div class='clear'></div>
+    </div>
+</body>
+</html>

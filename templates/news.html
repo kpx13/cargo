@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class='reviews'>
+    {% for r in news %}
+        <div class='review'>
+            <h2>{{r.name}} <span>{{r.date}}</span></h2> 
+            <p>
+                {{r.text|safe}}
+            </p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
