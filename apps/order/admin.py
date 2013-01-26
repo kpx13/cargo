@@ -5,7 +5,6 @@ import models
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 'order_date',)
-    search_fields = ('organization', 'contact','email')
     ordering = ('order_date', )
 
 class FeedbackAdmin(admin.ModelAdmin):
