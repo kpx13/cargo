@@ -71,6 +71,7 @@ def order_page(request):
         if form.is_valid():
             form.save()
             form = OrderForm()
+            c['done'] = True
     else:
         form = OrderForm()
 
@@ -87,6 +88,7 @@ def feedback_page(request):
         if form.is_valid():
             form.save()
             form = FeedbackForm()
+            c['done'] = True
     else:
         form = FeedbackForm()
 

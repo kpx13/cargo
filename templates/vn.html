@@ -8,10 +8,12 @@
 
     <div class="w100">
         <div class="ordering">
+            {% if done %}
+                <h2 style='color: red'>Ваш заказ отправлен.</h2>
+            {% endif %}
             <form name="order" action="" method="post">
             {% if form.errors %}
-                <div class="w1"><span>Заполните обязательные поля!</span></div>
-                {{ form.errors }}
+                <div class="w1"><span style='color: red'>Заполните обязательные поля!</span></div>
             {% endif %}
             <div style='width: 50%; float: left'>
                 <h3>1. Отправитель (Sender)</h3>
