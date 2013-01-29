@@ -17,20 +17,24 @@
             {% endif %}
             <div style='width: 50%; float: left'>
                 <h3>1. Отправитель (Sender)</h3>
-                {% include "input_tpl.html" with field=form.sender_country %}
-                {% include "input_tpl.html" with field=form.sender_city %}
-                {% include "input_tpl.html" with field=form.sender_postal_code %}
-                {% include "input_tpl.html" with field=form.sender_company %}
-                {% include "input_tpl.html" with field=form.sender_address %}
-                {% include "input_tpl.html" with field=form.sender_phone %}
-                {% include "input_tpl.html" with field=form.sender_name %}
+                <table style='width: 100%;'>
+                    {% include "input_tpl.html" with field=form.sender_country %}
+                    {% include "input_tpl.html" with field=form.sender_city %}
+                    {% include "input_tpl.html" with field=form.sender_postal_code %}
+                    {% include "input_tpl.html" with field=form.sender_company %}
+                    {% include "input_tpl.html" with field=form.sender_address %}
+                    {% include "input_tpl.html" with field=form.sender_phone %}
+                    {% include "input_tpl.html" with field=form.sender_name %}
+                </table>
                 <h3>3. Информация о грузе</h3>
                 <div style='width: 60%; float: left'>
-                    {% include "input_tpl.html" with field=form.info_pieces %}
-                    {% include "input_tpl.html" with field=form.info_weight %}
-                    {% include "input_tpl.html" with field=form.info_density %}
-                    {% include "input_tpl.html" with field=form.info_dim %}
-                    {% include "input_tpl.html" with field=form.info_desc %}
+                    <table style='width: 100%;'>
+                        {% include "input_tpl.html" with field=form.info_pieces %}
+                        {% include "input_tpl.html" with field=form.info_weight %}
+                        {% include "input_tpl.html" with field=form.info_density %}
+                        {% include "input_tpl.html" with field=form.info_dim %}
+                        {% include "input_tpl.html" with field=form.info_desc %}
+                    </table>
                 </div>
                 <div style='width: 32%; float: left'>
                     {% include "check_tpl.html" with field=form.info_envelope %}
@@ -45,27 +49,32 @@
             </div>
             <div style='width: 50%; float: left'>
                 <h3>2. Получатель (Receiver)</h3>
-                {% include "input_tpl.html" with field=form.receiver_country %}
-                {% include "input_tpl.html" with field=form.receiver_city %}
-                {% include "input_tpl.html" with field=form.receiver_postal_code %}
-                {% include "input_tpl.html" with field=form.receiver_company %}
-                {% include "input_tpl.html" with field=form.receiver_address %}
-                {% include "input_tpl.html" with field=form.receiver_phone %}
-                {% include "input_tpl.html" with field=form.receiver_name %}
+                <table style='width: 100%;'>
+                    {% include "input_tpl.html" with field=form.receiver_country %}
+                    {% include "input_tpl.html" with field=form.receiver_city %}
+                    {% include "input_tpl.html" with field=form.receiver_postal_code %}
+                    {% include "input_tpl.html" with field=form.receiver_company %}
+                    {% include "input_tpl.html" with field=form.receiver_address %}
+                    {% include "input_tpl.html" with field=form.receiver_phone %}
+                    {% include "input_tpl.html" with field=form.receiver_name %}
+                </table>
              <!--   <h3>4. Информация о доставке (Delivery information)</h3>-->
                 <h3>6. Информация об оплате и режим доставки</h3>
-                {% include "input_tpl.html" with field=form.delivery_recipient %}
-                {% include "input_tpl.html" with field=form.delivery_sender %}
-                {% include "input_tpl.html" with field=form.delivery_3rd %}
-                {% include "input_tpl.html" with field=form.delivery_acc %}
-                
+                <table style='width: 100%;'>
+                    {% include "input_tpl.html" with field=form.delivery_recipient %}
+                    {% include "input_tpl.html" with field=form.delivery_sender %}
+                    {% include "input_tpl.html" with field=form.delivery_3rd %}
+                    {% include "input_tpl.html" with field=form.delivery_acc %}
+                </table>
                 <div style='width: 60%; float: left'>
-                    {% include "input_tpl.html" with field=form.delivery_cash %}
-                    {% include "input_tpl.html" with field=form.delivery_tariff %}
-                    {% include "input_tpl.html" with field=form.delivery_insurance %}
-                    {% include "input_tpl.html" with field=form.delivery_deposit %}
-                    {% include "input_tpl.html" with field=form.delivery_declared %}
-                    {% include "input_tpl.html" with field=form.delivery_total %}
+                    <table style='width: 100%;'>
+                        {% include "input_tpl.html" with field=form.delivery_cash %}
+                        {% include "input_tpl.html" with field=form.delivery_tariff %}
+                        {% include "input_tpl.html" with field=form.delivery_insurance %}
+                        {% include "input_tpl.html" with field=form.delivery_deposit %}
+                        {% include "input_tpl.html" with field=form.delivery_declared %}
+                        {% include "input_tpl.html" with field=form.delivery_total %}
+                    </table>
                 </div>
                 <div style='width: 32%; float: left'>
                     {% include "check_tpl.html" with field=form.delivery_econom %}
