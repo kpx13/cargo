@@ -211,8 +211,8 @@ input.order_form_check
     width: 20px;
 }
 
-input::-webkit-input-placeholder {color: black}
-input:-moz-placeholder {color: black}
+input::-webkit-input-placeholder {color: #a0a0a0}
+input:-moz-placeholder {color: #a0a0a0}
 
 
 .clear
