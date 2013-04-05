@@ -1,42 +1,75 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="content-title">
-    <h1>ОТЗЫВ О КАЧЕСТВЕ</h1>
-</div>
-<div class="content-information">
-    <div class="w100">
-        <div class="ordering">
+                <div class="b-feedback">
+                    <h2 class="feedback-title">Отзыв о качестве обслуживания</h2>
+                    <span class="required">* - обязательные для заполнения поля</span>
+                    <div class="b-feedback__form">
+                        <form action="" method="post">
+                            <table class="table-form">
+                                <tr>
+                                    <td width="144">
+                                         ФИО<span class="required">*</span>
+                                    </td>
+                                    <td>
+                                        {{ form.fio }}
+                                        {% if form.fio.errors %}<span class="feedback__desc">Обязательное поле</span>{% endif %}
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                         Компания<span class="required">*</span>
+                                    </td>
+                                    <td>
+                                        {{ form.company }}
+                                        {% if form.company.errors %}<span class="feedback__desc">Обязательное поле</span>{% endif %}
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                         Телефон<span class="required">*</span>
+                                    </td>
+                                    <td>
+                                        {{ form.phone }}
+                                        {% if form.phone.errors %}<span class="feedback__desc">Обязательное поле</span>{% endif %}
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                         E-mail
+                                    </td>
+                                    <td>
+                                        {{ form.email }}
+                                        {% if form.email.errors %}<span class="feedback__desc">Обязательное поле</span>{% endif %}
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        Отзыв<span class="required">*</span>
+                                    </td>
+                                    <td>
+                                        {{ form.comment }}
+                                        {% if form.comment.errors %}<span class="feedback__desc">Обязательное поле</span>{% endif %}
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
 
-            <form name="order" action="" method="post">
-            {% if form.errors %}
-            <div class="w1"><span>Заполните обязательные поля!</span></div>
-            {% endif %}
-            <div class="w1"{% if form.fio.errors %} style="border:solid 1px red;"{% endif %}>
-                <label for="id_fio">{{ form.fio.label }}</label>
-                {{ form.fio }}
-            </div>
-            <div class="w1"{% if form.company.errors %} style="border:solid 1px red;"{% endif %}>
-                <label for="id_company">{{ form.company.label }}</label>
-                {{ form.company }}
-            </div>
-            <div class="w1"{% if form.phone.errors %} style="border:solid 1px red;"{% endif %}>
-                <label for="id_phone">{{ form.phone.label }}</label>
-                {{ form.phone }}
-            </div>
-            <div class="w1"{% if form.email.errors %} style="border:solid 1px red;"{% endif %}>
-                <label for="id_email">{{ form.email.label }}</label>
-                {{ form.email }}
-            </div>
-            <div class="w1"{% if form.comment.errors %} style="border:solid 1px red;"{% endif %}>
-               <label for="id_comment">{{ form.comment.label }}</label>
-               {{ form.comment }}
-             </div>
-             <div class="but"><input type="submit" value="Оставить отзыв" /></div>
-             {% csrf_token %}
-            </form>
-        </div>
-    </div> <!-- w100 -->
+                                    </td>
+                                    <td>
+                                        <p><input class="feedback__btn" type="submit" value="Отправить"></p>
+                                    </td>
+                                </tr>
+                           </table>
+                           {% csrf_token %}
+                        </form>
+                    </div>
+                </div>
 
 </div><!-- information -->
 {% endblock %}

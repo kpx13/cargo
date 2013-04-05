@@ -1,23 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="content-title">
-        <h1>ОФОРМЛЕНИЕ ЗАКАЗА</h1>
-    </div>
-<div class="content-information">
 
-    <div class="w100">
-        <div class="ordering">
-            {% if done %}
-                <h2 style='color: red'>Ваш заказ отправлен.</h2>
-            {% endif %}
-            <form name="order" action="" method="post">
-            {% if form.errors %}
-                <div class="w1"><span style='color: red'>Заполните обязательные поля!</span></div>
-            {% endif %}
-            <div style='width: 50%; float: left'>
-                <h3>1. Отправитель (Sender)</h3>
-                <table style='width: 100%;'>
+    <div class="b-feedback">
+        <h2 class="feedback-title">Оформление заказа</h2>
+        <span class="required">* - обязательные для заполнения поля</span>
+        <div class="b-feedback__form">
+            <form action="" method="post">
+                <table class="table-form">
+                
+                    <tr><td><u>1. Отправитель (Sender)</u></td><td></td></tr>
                     {% include "input_tpl.html" with field=form.sender_country %}
                     {% include "input_tpl.html" with field=form.sender_city %}
                     {% include "input_tpl.html" with field=form.sender_postal_code %}
@@ -25,31 +17,8 @@
                     {% include "input_tpl.html" with field=form.sender_address %}
                     {% include "input_tpl.html" with field=form.sender_phone %}
                     {% include "input_tpl.html" with field=form.sender_name %}
-                </table>
-                <h3>3. Информация о грузе</h3>
-                <div style='width: 60%; float: left'>
-                    <table style='width: 100%;'>
-                        {% include "input_tpl.html" with field=form.info_pieces %}
-                        {% include "input_tpl.html" with field=form.info_weight %}
-                        {% include "input_tpl.html" with field=form.info_density %}
-                        {% include "input_tpl.html" with field=form.info_dim %}
-                        {% include "input_tpl.html" with field=form.info_desc %}
-                    </table>
-                </div>
-                <div style='width: 32%; float: left'>
-                    {% include "check_tpl.html" with field=form.info_envelope %}
-                    {% include "check_tpl.html" with field=form.info_package %}
-                    {% include "check_tpl.html" with field=form.info_box %}
-                    {% include "check_tpl.html" with field=form.info_bag %}
-                    {% include "check_tpl.html" with field=form.info_dang %}
-                </div>
-                <div class='clear'></div>
-                <h3>5. Примечание (Remark)</h3>
-                <textarea style='width: 92%' rows='8'>{% if form.remark.value %}{{ form.remark.value }}{% endif %}</textarea>
-            </div>
-            <div style='width: 50%; float: left'>
-                <h3>2. Получатель (Receiver)</h3>
-                <table style='width: 100%;'>
+                            
+                    <tr><td><u>2. Получатель (Receiver)</u></td><td></td></tr>
                     {% include "input_tpl.html" with field=form.receiver_country %}
                     {% include "input_tpl.html" with field=form.receiver_city %}
                     {% include "input_tpl.html" with field=form.receiver_postal_code %}
@@ -57,45 +26,55 @@
                     {% include "input_tpl.html" with field=form.receiver_address %}
                     {% include "input_tpl.html" with field=form.receiver_phone %}
                     {% include "input_tpl.html" with field=form.receiver_name %}
-                </table>
-             <!--   <h3>4. Информация о доставке (Delivery information)</h3>-->
-                <h3>6. Информация об оплате и режим доставки</h3>
-                <table style='width: 100%;'>
+                    
+                    <tr><td><u>3. Информация о грузе</u></td><td></td></tr>
+                    {% include "input_tpl.html" with field=form.info_pieces %}
+                    {% include "input_tpl.html" with field=form.info_weight %}
+                    {% include "input_tpl.html" with field=form.info_density %}
+                    {% include "input_tpl.html" with field=form.info_dim %}
+                    {% include "input_tpl.html" with field=form.info_desc %}
+                    {% include "input_tpl.html" with field=form.info_envelope %}
+                    {% include "input_tpl.html" with field=form.info_package %}
+                    {% include "input_tpl.html" with field=form.info_box %}
+                    {% include "input_tpl.html" with field=form.info_bag %}
+                    {% include "input_tpl.html" with field=form.info_dang %}
+
+                    <tr><td><u>5. Примечание (Remark)</u></td><td>
+                        <textarea rows='8'>{% if form.remark.value %}{{ form.remark.value }}{% endif %}</textarea>
+                    </td></tr>
+            
+                    <tr><td><u>6. Информация об оплате и режим доставки</u></td><td></td></tr>
                     {% include "input_tpl.html" with field=form.delivery_recipient %}
                     {% include "input_tpl.html" with field=form.delivery_sender %}
                     {% include "input_tpl.html" with field=form.delivery_3rd %}
                     {% include "input_tpl.html" with field=form.delivery_acc %}
-                </table>
-                <div style='width: 60%; float: left'>
-                    <table style='width: 100%;'>
-                        {% include "input_tpl.html" with field=form.delivery_cash %}
-                        {% include "input_tpl.html" with field=form.delivery_tariff %}
-                        {% include "input_tpl.html" with field=form.delivery_insurance %}
-                        {% include "input_tpl.html" with field=form.delivery_deposit %}
-                        {% include "input_tpl.html" with field=form.delivery_declared %}
-                        {% include "input_tpl.html" with field=form.delivery_total %}
+                    {% include "input_tpl.html" with field=form.delivery_cash %}
+                    {% include "input_tpl.html" with field=form.delivery_tariff %}
+                    {% include "input_tpl.html" with field=form.delivery_insurance %}
+                    {% include "input_tpl.html" with field=form.delivery_deposit %}
+                    {% include "input_tpl.html" with field=form.delivery_declared %}
+                    {% include "input_tpl.html" with field=form.delivery_total %}
+                    {% include "input_tpl.html" with field=form.delivery_econom %}
+                    {% include "input_tpl.html" with field=form.delivery_standart %}
+                    {% include "input_tpl.html" with field=form.delivery_express %}
+                    {% include "input_tpl.html" with field=form.delivery_reserv %}
+                    {% include "input_tpl.html" with field=form.delivery_hand %}
+                    {% include "input_tpl.html" with field=form.delivery_pickup %}
+                    
+                    <tr><td>
+                        
+                        <p {% if form.agree.errors %} style='color: red' {% endif %} > {{ form.agree }} Я согласен(на) с условиями работы.</p>
+                    </td></tr>
+                        <tr>
+                            <td></td>
+                            <td><p><input class="feedback__btn" type="submit" value="Отправить"></p></td>
+                        </tr>
                     </table>
-                </div>
-                <div style='width: 32%; float: left'>
-                    {% include "check_tpl.html" with field=form.delivery_econom %}
-                    {% include "check_tpl.html" with field=form.delivery_standart %}
-                    {% include "check_tpl.html" with field=form.delivery_express %}
-                    {% include "check_tpl.html" with field=form.delivery_reserv %}
-                    {% include "check_tpl.html" with field=form.delivery_hand %}
-                    {% include "check_tpl.html" with field=form.delivery_pickup %}
-                </div>
-            </div>
-             <div class="usl"{% if form.agree.errors %} style="border:solid 1px red;"{% endif %}>
-               <span class="niceCheck">{{ form.agree }}</span>
-               <span class="titl">Я согласен(на) с условиями работы.</span>
-             </div>
-             <div class="but"><input type="submit" value="Отправить заказ" /></div>
-             {% csrf_token %}
+                {% csrf_token %}
             </form>
+                        
         </div>
-    </div> <!-- w100 -->
-
-</div><!-- information -->
+    </div>
 {% endblock %}
 
 

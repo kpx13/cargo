@@ -1,12 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="content-title">
-        <h1>{{title}}</h1>
-    </div>
-    <div class="content-information">
-        {% if 'rules' in request_url %}
-        <div class='image_law'></div>
-        {% endif %}
-        {{content|safe}}
-    </div>
+        <h3 class="content-title">{{ title }}</h3>
+        <div class='content-container'>
+            {{content|safe}}
+        </div>
 {% endblock %}

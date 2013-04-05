@@ -1,8 +1,7 @@
-<div>
-    <tr>
-        <td width='100'><label style='color: white;'>{{ field.label}}</label>
-        <td>
-        <input type='text' class='order_form' name='{{ field.name }}' {% if field.value %} value='{{ field.value }}' {% endif %} {% if field.errors %} style="border:solid 1px red;"{% endif %} />
-        </td>
-    </tr>
-</div>
+<tr>
+    <td>{{ field.label}}</td>
+    <td>
+        {{ field }}
+        {% if field.errors %}<span class="feedback__desc">Обязательное поле</span>{% endif %}
+    </td>
+</tr>

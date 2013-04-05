@@ -1,132 +1,123 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name='yandex-verification' content='54d69efea396484c' />
-<meta name='yandex-verification' content='68393b0938b54355' />
-<meta name="google-site-verification" content="MuFer73XHGzln8zLICA5i3g2JpBsGlPRYPrKWPYD8IY" />
-<title>{% if title%}{{title}}{%else%}Документ без названия{%endif%}</title>
-<link href="/static/style.css" rel="stylesheet" type="text/css" />
-<link href="/static/css/cusel.css" rel="stylesheet" type="text/css" />
-
-<script type="text/javascript" src="/static/js/jquery-1.6.1.js"></script>
-<script type="text/javascript" src="/static/js/cusel.js"></script>
-<script type="text/javascript" src="/static/js/jScrollPane.js"></script>
-<script type="text/javascript" src="/static/js/jquery.mousewheel.js"></script>
-<script type="text/javascript" src="/static/js/jquery.checkbox.js"></script>
-{% block headjs %}{% endblock %}
-
-
-<script type="text/javascript">
-jQuery(document).ready(function(){
-var params = {
-                changedEl: ".lineForm select",
-                visRows: 5,
-                scrollArrows: true
-        }
-
-        cuSel(params);
-
-});
-</script>
-{% block head_script %}{% endblock %}
-
-{%if header_content%}{{header_content|safe}}{%endif%}
-</head>
+<!DOCTYPE html>
+<html>
+    <head>
+          <meta charset="utf-8">
+          <title></title>
+          <meta name="description" content="" />
+          <meta name="keywords" content="" />
+          <link rel="stylesheet" href="/static/styles/style.css">
+          <link rel="stylesheet" href="/static/styles/reset.css">
+          <script src="/static/js/jquery-1.9.1.min.js"></script>
+          <script src="/static/js/script.js"></script>
+    </head>
 
 <body>
-<div class="main" {% block header_logo %}  {% endblock %}><div class="well">
-  <div class="cent">
-    <div class="header">
-      <div class="top">
-        <div class="logo"><a href="/"><img src="/static/images/logo.png" alt="" /></a></div>
-      <!--  <div class="search">
-          <form action="#" method="post">
-            <input type="text" value="Поиск по сайту" class="inp_s" onclick="if(this.value=='Поиск по сайту') this.value=''" onblur="if(this.value=='') this.value='Поиск по сайту'" />
-            <input type="image" src="/static/images/kn_s.png" class="kn_s" />
-          </form>
-        </div>-->
-        <div class="menu">
-          <ul>
-            <li {%if 'home' in request_url %} class='active' {% endif %}><a href="/">ГЛАВНАЯ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
-            <li {%if 'offers' in request_url %} class='active' {% endif %}><a href="{% url static_page 'offers' %}">СПЕЦ. ПРЕДЛОЖЕНИЯ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
-            <li {%if 'about' in request_url %} class='active' {% endif %}><a href="{% url static_page 'about' %}">О КОМПАНИИ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
-            <li {%if 'insurance' in request_url %} class='active' {% endif %}><a href="{% url static_page 'insurance' %}">СТРАХОВАНИЕ ГРУЗОВ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
-<!--             <li><a href="#">ОТСЛЕЖИВАНИЕ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li> -->
-<!--             <li><a href="#">ЛИЧНЫЙ КАБИНЕТ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li> -->
-            <li {%if 'order' in request_url %} class='active' {% endif %}><a href="{% url order_page %}">ЗАКАЗ ОНЛАЙН</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
-            <li {%if 'contacts' in request_url %} class='active' {% endif %}><a href="{% url static_page 'contacts' %}">КОНТАКТЫ</a><div class="line"><span class="ml"><span class="mr"></span></span></div></li>
-          </ul>
+
+<div class="l-wrapper">
+        <header class="b-header">
+            <div class="logo">доставка грузов и документов, курьерская доставка</div>
+            <div class="slogan"><!----></div>
+            <div class="contacts">
+                <span class="icq">605866302</span>
+                <span class="skype">cargo.express77</span><br/>
+                <span class="phone">8 (495) 988-91-15, 8 (499) 343-89-38</span> (Москва)
+                <span class="phone">8 (812) 642-52-15 </span> (Санкт-Петербург)
+            </div>
+            <nav class="head-menu">
+                <ul class="nav-head">
+                    <li class="nav-head__item"><a href="/">ГЛАВНАЯ</a></li>
+                    <li class="nav-head__item"><a href="/page/offers">СПЕЦ. ПРЕДЛОЖЕНИЯ</a></li>
+                    <li class="nav-head__item"><a href="/page/about">О КОМПАНИИ</a></li>
+                    <li class="nav-head__item"><a href="/page/insurance">СТРАХОВАНИЕ ГРУЗОВ</a></li>
+                    <li class="nav-head__item"><a href="/order">ЗАКАЗ ОНЛАЙН</a></li>
+                    <li class="nav-head__item"><a href="/page/contacts">КОНТАКТЫ</a></li>
+                </ul>
+                <span class="nav-head__btn"><a href="#">отследить направление</a></span>
+            </nav>
+        </header>
+        <div class="container">
+            <div class="sidebar-left">
+                <div class="b-news">
+                    <h2 class="b-news-heading">Новости Экспресс</h2>
+                        {% for n in news %}
+                            <div class="b-new">
+                                <span class="b-new__date">{{ n.date }}</span>
+                                <a class="b-new__title" href='/news/{{ n.id }}'>{{ n.name }}</a>
+                            </div>
+                        {% endfor %}
+                </div>
+                <div class="b-payment">
+                    <span class="b-payment__title">Мы принимаем</span>
+                </div>
+                <div class="b-distance">
+                    <a class="b-distance__title" href="#">Рассчитать расстояние между городами</a>
+                </div>
+                <div class="b-feedback-1">
+                    <a href="#" class="b-feedback__title">Обратная связь</a>
+                </div>
+                <div class="b-feedback-2">
+                    <a href="#" class="b-feedback__title">Письмо директору</a>
+                </div>
+                <div class="sidebar__list">
+                    <a class="sidebar__link" href="/page/terminology">терминология доставки</a>
+                    <a class="sidebar__link" href="/page/tips">полезные советы</a>
+                    <a class="sidebar__link" href="/feedback">качество обслуживания</a>
+                </div>
+            </div>
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+
+            </div>
         </div>
-        <div class="header_phones">
-            <div class='header_line'><h1>Москва: 8(495)988-91-15, 8(499)343-89-38</h1></div>
-            <div class='header_line'><h1>Санкт Петербург: 8(812) 642-52-15</h1></div>
-            <div class='header_line'><h1><img src='/static/images/ICQ2_64.png' /> <p> 605866302</p></h1></div>
-            <div class='header_line'><h1><img src='/static/images/Skype_64.png' /> <p>  cargo.express77</p></h1></div>
-        </div>
-      </div>
+    
     </div>
-  </div>
-
-  <div class="cont"><div class="cent">
-    <div class="content">
-    {% block content %}
-
-    {% endblock %}
+<footer class="b-footer">
+    <div class="footer__inner">
+        <span class="copy">© 2012 cargoexpresstrans.ru</span>
+        <nav class="foot-menu">
+            <ul class="nav-foot">
+                    <li class="nav-foot__item"><a href="#">ГЛАВНАЯ</a></li>
+                    <li class="nav-foot__item"><a href="#">СПЕЦ. ПРЕДЛОЖЕНИЯ</a></li>
+                    <li class="nav-foot__item"><a href="#">О КОМПАНИИ</a></li>
+                    <li class="nav-foot__item"><a href="#">СТРАХОВАНИЕ ГРУЗОВ</a></li>
+                    <li class="nav-foot__item"><a href="#">ЗАКАЗ ОНЛАЙН</a></li>
+                    <li class="nav-foot__item"><a href="#">КОНТАКТЫ</a></li>
+            </ul>
+        </nav>
     </div>
-  </div></div>
-
-  <div class="foother">
-    <div class="foot">
-      <div class="copyr">© 2012 cargoexpresstrans.ru
- <div> Мы принимаем к оплате: <br />	<img src='/static/images/icons/cash.jpg' style='height: 40px' />
-<img src='/static/images/icons/visa.jpg'  style='height: 40px' />
-<img src='/static/images/icons/mastercard.jpg'  style='height: 40px' />
-<img src='/static/images/icons/yandexcash.jpg' style='height: 40px' /><br />
- <a href='http://webgenesis.ru/' target='blank'>Сайт создан в веб-студии webenesis</a>	
-</div>
-	</div>
-      <div class="fmenu">
-          <ul>
-            <li><a href="/">ГЛАВНАЯ</a></li>
-            <li><a href="{% url static_page 'offers' %}">СПЕЦ. ПРЕДЛОЖЕНИЯ</a></li>
-            <li><a href="{% url static_page 'about' %}">О КОМПАНИИ</a></li>
-            <li><a href="{% url static_page 'insurance' %}">СТРАХОВАНИЕ ГРУЗОВ</a></li>
-            <li><a href="{% url order_page %}">ЗАКАЗ ОНЛАЙН</a></li>
-            <li><a href="{% url static_page 'contacts' %}">КОНТАКТЫ</a></li>
-          </ul>
-      </div>
-    </div>
-  </div>
-
-</div></div>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-var yaParams = {/*Здесь параметры визита*/};
-</script>
-<script type="text/javascript">
-(function (d, w, c) {
-    (w[c] = w[c] || []).push(function() {
-        try {
-            w.yaCounter19733107 = new Ya.Metrika({id:19733107,
-                    webvisor:true,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,params:window.yaParams||{ }});
-        } catch(e) { }
-    });
-    var n = d.getElementsByTagName("script")[0],
-        s = d.createElement("script"),
-        f = function () { n.parentNode.insertBefore(s, n); };
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-    if (w.opera == "[object Opera]") {
-        d.addEventListener("DOMContentLoaded", f, false);
-    } else { f(); }
-})(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="//mc.yandex.ru/watch/19733107" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-</body>
+</footer>
+    
+    
+    {% comment %}
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    var yaParams = {/*Здесь параметры визита*/};
+    </script>
+    <script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter19733107 = new Ya.Metrika({id:19733107,
+                        webvisor:true,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,params:window.yaParams||{ }});
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="//mc.yandex.ru/watch/19733107" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    {% endcomment %}
+    </body>
 </html>
