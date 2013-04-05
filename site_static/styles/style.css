@@ -569,6 +569,19 @@ background:url(../img/item3.jpg) no-repeat 20px 20px;
 	height:130px;
 	outline:0;
 }
+
+#feedback_dialog .b-feedback__form, #calc_dialog .b-feedback__form{
+    padding-top:10px;
+}
+
+#feedback_dialog textarea{
+    width:185px;
+}
+
+#feedback_dialog input{
+    width:185px;
+}
+
 .b-feedback  input[type="text"]{
 	width:345px;
 	height:20px;

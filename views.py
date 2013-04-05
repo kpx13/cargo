@@ -2,8 +2,10 @@
 
 REGISTRATION_ALERT_TO = 'annkpx@gmail.com'
 
+from django.contrib import messages
+from django.template import RequestContext
 from django.core.context_processors import csrf
-from django.http import HttpResponseRedirect, HttpResponseNotFound
+from django.http import HttpResponseRedirect, HttpResponseNotFound, Http404
 from django.shortcuts import render_to_response
 import datetime
 
@@ -19,6 +21,19 @@ def get_common_context(request):
     c['news'] = news.views.get_news()
     c.update(pages.views.get_common_content())
     c.update(csrf(request))
+    
+    if request.POST:
+        form = FeedbackMForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = FeedbackMForm()
+            messages.success(request, u'Ваш отзыв успешно отправлен.')
+            
+    else:
+        form = FeedbackMForm()
+
+    c['feedback_form'] = form
+    
     return c
 
 def home_page(request):
@@ -27,22 +42,12 @@ def home_page(request):
     c['rates'] = rates.views.get_rates()
     c.update(pages.views.get_page('home'))
     
-    if request.POST:
-        form = FeedbackMForm(request.POST)
-        if form.is_valid():
-            form.save()
-            form = FeedbackMForm()
-    else:
-        form = FeedbackMForm()
-
-    c['feedback_form'] = form
-    
-    return render_to_response('home.html', c)
+    return render_to_response('home.html', c, context_instance=RequestContext(request))
 
 def rates_page(request, page_id):
     c = get_common_context(request)
     c.update(rates.views.get_page(page_id))
-    return render_to_response('rates.html', c)
+    return render_to_response('rates.html', c, context_instance=RequestContext(request))
 
 def get_page(request, page_name):
     c = get_common_context(request)
@@ -50,18 +55,13 @@ def get_page(request, page_name):
     if page:
         c.update(page)
         c['title'] = c['title']
-        return render_to_response('page.html', c)
+        return render_to_response('page.html', c, context_instance=RequestContext(request))
     else:
-        return HttpResponseNotFound('not found page')
+        raise Http404
 
 def page(request):
     c = get_common_context(request)
-    return render_to_response('page.html', c)
-
-def insert_test_data(request):
-    pages.views.insert_test_data()
-    rates.views.insert_test_data()
-    return HttpResponseRedirect('/')
+    return render_to_response('page.html', c, context_instance=RequestContext(request))
 
 def order_page(request):
     c = get_common_context(request)
@@ -73,12 +73,13 @@ def order_page(request):
             form.save()
             form = OrderForm()
             c['done'] = True
+            messages.success(request, u'Ваш заказ успешно отправлен.')
     else:
         form = OrderForm()
 
     c['form'] = form
 
-    return render_to_response('vn.html', c)
+    return render_to_response('vn.html', c, context_instance=RequestContext(request))
 
 def feedback_page(request):
     c = get_common_context(request)
@@ -89,21 +90,23 @@ def feedback_page(request):
         if form.is_valid():
             form.save()
             form = FeedbackForm()
-            c['done'] = True
+            messages.success(request, u'Ваш отзыв успешно отправлен.')
     else:
         form = FeedbackForm()
 
     c['form'] = form
 
-    return render_to_response('feedback.html', c)
-
+    return render_to_response('feedback.html', c, context_instance=RequestContext(request))
 
 def news_page(request, n_id):
     c = get_common_context(request)
-    c['title'], c['content'] = news.views.get_item(int(n_id))
-    return render_to_response('page.html', c)
+    try:
+        c['title'], c['content'] = news.views.get_item(int(n_id))
+    except:
+        raise Http404
+    return render_to_response('page.html', c, context_instance=RequestContext(request))
 
 def static_page(request, pageName):
     c = get_common_context(request)
     c.update(pages.views.get_page(pageName))
-    return render_to_response('page.html', c)
+    return render_to_response('page.html', c, context_instance=RequestContext(request))

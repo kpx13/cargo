@@ -5,13 +5,119 @@
           <title></title>
           <meta name="description" content="" />
           <meta name="keywords" content="" />
+          <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
           <link rel="stylesheet" href="/static/styles/style.css">
           <link rel="stylesheet" href="/static/styles/reset.css">
           <script src="/static/js/jquery-1.9.1.min.js"></script>
           <script src="/static/js/script.js"></script>
+          <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+            <script>
+           
+            $(function() {
+                {% if messages %} 
+                    $( "#messages_dialog" ).dialog();
+                {% endif %}
+                 $("#feedback_dialog" ).dialog({ autoOpen: false });
+                 $("#feedback_dialog_btn").click(function(){ $( "#feedback_dialog" ).dialog('open');  });
+
+                });
+            
+            
+            </script>
     </head>
 
 <body>
+
+<div id="messages_dialog" style='display: none'>
+    <p>
+        {% for message in messages %}
+            <div class='message-wrapper'>
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message|safe }}
+                </div>
+            </div>
+        {% endfor %}
+    </p>
+</div>
+
+<div id="feedback_dialog" title='Обратная связь'  style='display: none'>
+    <div class="b-feedback__form">
+        <form action="" method="post">
+            <table class="table-form">
+                <tr>
+                    <td width="144">Имя:<span class="required">*</span></td>
+                    <td><input id="id_fio" type="text" name="fio" maxlength="150" /></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">Город:</td>
+                    <td><input id="id_fio" type="text" name="city" maxlength="150" /></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">Телефон:</td>
+                    <td><input id="id_fio" type="text" name="phone" maxlength="150" /></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">Email:<span class="required">*</span></td>
+                    <td><input id="id_fio" type="text" name="email" maxlength="75" /></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">Сообщение:<span class="required">*</span></td>
+                    <td><textarea rows="10" name="comment"></textarea></td>
+                </tr>
+                
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <p><input class="feedback__btn" type="submit" value="Отправить"></p>
+                    </td>
+                </tr>
+            </table>
+            {% csrf_token %}
+        </form>
+    </div>
+</div>
+
+{% comment %}
+<div id="calc_dialog" title='Расчет расстояния'  style='display: none'>
+    <div class="b-feedback__form">
+        <form action="#" method="post">
+            <table class="table-form">
+                <tr>
+                    <td width="144">От:
+                    <td><input type="text" id="start" value="Москва"/></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">До:</td>
+                    <td><input type="text" id="end" value="Рязань"/></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">Расстояние, км:</td>
+                    <td><input type="text" id="resultDistance" value="" class="inp" readonly=""/></td>
+                </tr>
+
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <p><input class="feedback__btn" type="button" id="calc_button" value="Посчитать"></p>
+                    </td>
+                </tr>
+            </table>
+            {% csrf_token %}
+        </form>
+    </div>
+</div>
+{% endcomment %}
+
 
 <div class="l-wrapper">
         <header class="b-header">
@@ -53,10 +159,10 @@
                     <a class="b-distance__title" href="#">Рассчитать расстояние между городами</a>
                 </div>
                 <div class="b-feedback-1">
-                    <a href="#" class="b-feedback__title">Обратная связь</a>
+                    <a href="#feedback_dialog" id='feedback_dialog_btn' class="b-feedback__title">Обратная связь</a>
                 </div>
                 <div class="b-feedback-2">
-                    <a href="#" class="b-feedback__title">Письмо директору</a>
+                    <a href="" class="b-feedback__title">Письмо директору</a>
                 </div>
                 <div class="sidebar__list">
                     <a class="sidebar__link" href="/page/terminology">терминология доставки</a>
@@ -75,14 +181,15 @@
 <footer class="b-footer">
     <div class="footer__inner">
         <span class="copy">© 2012 cargoexpresstrans.ru</span>
+        <a href='http://webgenesis.ru' target='blank'>создание сайта</a>
         <nav class="foot-menu">
             <ul class="nav-foot">
-                    <li class="nav-foot__item"><a href="#">ГЛАВНАЯ</a></li>
-                    <li class="nav-foot__item"><a href="#">СПЕЦ. ПРЕДЛОЖЕНИЯ</a></li>
-                    <li class="nav-foot__item"><a href="#">О КОМПАНИИ</a></li>
-                    <li class="nav-foot__item"><a href="#">СТРАХОВАНИЕ ГРУЗОВ</a></li>
-                    <li class="nav-foot__item"><a href="#">ЗАКАЗ ОНЛАЙН</a></li>
-                    <li class="nav-foot__item"><a href="#">КОНТАКТЫ</a></li>
+                    <li class="nav-foot__item"><a href="/">ГЛАВНАЯ</a></li>
+                    <li class="nav-foot__item"><a href="/page/offers">СПЕЦ. ПРЕДЛОЖЕНИЯ</a></li>
+                    <li class="nav-foot__item"><a href="/page/about">О КОМПАНИИ</a></li>
+                    <li class="nav-foot__item"><a href="/page/insurance">СТРАХОВАНИЕ ГРУЗОВ</a></li>
+                    <li class="nav-foot__item"><a href="/order">ЗАКАЗ ОНЛАЙН</a></li>
+                    <li class="nav-foot__item"><a href="/page/contacts">КОНТАКТЫ</a></li>
             </ul>
         </nav>
     </div>
@@ -120,4 +227,6 @@
     <!-- /Yandex.Metrika counter -->
     {% endcomment %}
     </body>
+    
+          
 </html>
