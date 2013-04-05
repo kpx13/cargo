@@ -16,6 +16,7 @@ from order.forms import OrderForm, FeedbackForm, FeedbackMForm
 def get_common_context(request):
     c = {}
     c['request_url'] = request.path
+    c['news'] = news.views.get_news()
     c.update(pages.views.get_common_content())
     c.update(csrf(request))
     return c
@@ -97,11 +98,10 @@ def feedback_page(request):
     return render_to_response('feedback.html', c)
 
 
-def news_page(request):
+def news_page(request, n_id):
     c = get_common_context(request)
-    c['news'] = news.views.get_news()
-
-    return render_to_response('news.html', c)
+    c['title'], c['content'] = news.views.get_item(int(n_id))
+    return render_to_response('page.html', c)
 
 def static_page(request, pageName):
     c = get_common_context(request)
