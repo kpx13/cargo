@@ -135,7 +135,6 @@ INSTALLED_APPS = (
     'rates',
     'news',
     'order',
-    'ckeditor'
 )
 
 # A sample logging configuration. The only tangible logging
