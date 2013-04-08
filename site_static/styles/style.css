@@ -418,7 +418,7 @@ background:url(../img/item2.jpg) no-repeat 40px 7px;
 .b-info__c{
 background:url(../img/item3.jpg) no-repeat 20px 20px;
 }
-.text{
+.content-container p, .text, .content-container ul{
     padding-bottom:18px;
     font-size:13px;
     color:#000000;
@@ -531,7 +531,7 @@ background:url(../img/item3.jpg) no-repeat 20px 20px;
     color:#ffffff;
     text-align:left;
     text-transform:uppercase;
-    font-size:16.7px;
+    font-size:12px;
     padding: 18px 0 12px 20px;
     }
 .odd{
@@ -596,7 +596,7 @@ background:url(../img/item3.jpg) no-repeat 20px 20px;
     text-align: left;
 }
 
-#feedback_dialog .b-feedback__form, #calc_dialog .b-feedback__form{
+#feedback_dialog .b-feedback__form, #director_dialog .b-feedback__form{
     padding-top:10px;
 }
 
@@ -607,4 +607,3 @@ background:url(../img/item3.jpg) no-repeat 20px 20px;
 #feedback_dialog input{
     width:185px;
 }
-

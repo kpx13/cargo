@@ -19,7 +19,8 @@
                 {% endif %}
                  $("#feedback_dialog" ).dialog({ autoOpen: false });
                  $("#feedback_dialog_btn").click(function(){ $( "#feedback_dialog" ).dialog('open');  });
-
+                 $("#director_dialog" ).dialog({ autoOpen: false });
+                 $("#director_dialog_btn").click(function(){ $( "#director_dialog" ).dialog('open');  });
                 });
             
             
@@ -83,6 +84,54 @@
     </div>
 </div>
 
+<div id="director_dialog" title='Письмо директору'  style='display: none'>
+    <div class="b-feedback__form">
+        <form action="" method="post">
+            <table class="table-form">
+                <tr>
+                    <td width="144">Обращение по заказу № (другая причина):</td>
+                    <td><input id="id_fio" type="text" name="reason" maxlength="150" /></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">Имя:<span class="required">*</span></td>
+                    <td><input id="id_fio" type="text" name="fio" maxlength="150" /></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">Город:</td>
+                    <td><input id="id_fio" type="text" name="city" maxlength="150" /></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">Телефон:</td>
+                    <td><input id="id_fio" type="text" name="phone" maxlength="150" /></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">Email:<span class="required">*</span></td>
+                    <td><input id="id_fio" type="text" name="email" maxlength="75" /></td>
+                </tr>
+                
+                <tr>
+                    <td width="144">Сообщение:<span class="required">*</span></td>
+                    <td><textarea rows="10" name="comment"></textarea></td>
+                </tr>
+                
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <p><input class="feedback__btn" type="submit" value="Отправить"></p>
+                    </td>
+                </tr>
+            </table>
+            {% csrf_token %}
+        </form>
+    </div>
+</div>
+
 {% comment %}
 <div id="calc_dialog" title='Расчет расстояния'  style='display: none'>
     <div class="b-feedback__form">
@@ -90,17 +139,20 @@
             <table class="table-form">
                 <tr>
                     <td width="144">От:
-                    <td><input type="text" id="start" value="Москва"/></td>
+                    <td><input type="text" id="start" value="Москва"/>
+</td>
                 </tr>
                 
                 <tr>
                     <td width="144">До:</td>
-                    <td><input type="text" id="end" value="Рязань"/></td>
+                    <td><input type="text" id="end" value="Рязань"/>
+</td>
                 </tr>
                 
                 <tr>
                     <td width="144">Расстояние, км:</td>
-                    <td><input type="text" id="resultDistance" value="" class="inp" readonly=""/></td>
+                    <td><input type="text" id="resultDistance" value="" class="inp" readonly=""/>
+</td>
                 </tr>
 
                 <tr>
@@ -121,7 +173,7 @@
 
 <div class="l-wrapper">
         <header class="b-header">
-	    <div class="logo" style='float: left'>доставка грузов и документов, курьерская доставка</div>
+	    <a href='/'><div class="logo" style='float: left'>доставка грузов и документов, курьерская доставка</div></a>
 	    <div class="slogan" style='float: left'><!----></div>
 	    <div class="contacts" style='float: right'>
                 <span class="icq">605866302</span>
@@ -163,7 +215,7 @@
                     <a href="#feedback_dialog" id='feedback_dialog_btn' class="b-feedback__title">Обратная связь</a>
                 </div>
                 <div class="b-feedback-2">
-                    <a href="" class="b-feedback__title">Письмо директору</a>
+                    <a href="#director_dialog" id='director_dialog_btn' class="b-feedback__title">Письмо директору</a>
                 </div>
                 <div class="sidebar__list">
                     <a class="sidebar__link" href="/page/terminology">терминология доставки</a>

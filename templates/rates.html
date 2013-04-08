@@ -1,13 +1,7 @@
 {% extends 'base.html' %}
-
-{% block header_logo %} style ='background:url(/media/{{header_photo}}) no-repeat center top;' {% endblock %}
-
 {% block content %}
- <h1>{{title}}</h1>
- <div class="information">
-   <div class="left">
-    {{ rules|safe }}
-   </div>
-
- </div>
+        <h3 class="content-title">{{ title }}</h3>
+        <div class='content-container'>
+            {{rules|safe}}
+        </div>
 {% endblock %}

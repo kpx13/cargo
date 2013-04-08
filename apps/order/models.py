@@ -80,6 +80,7 @@ class QualityFeedback(models.Model):
 
 class Feedback(models.Model):
     fio = models.CharField(u'Имя', max_length=150)
+    reason = models.CharField(u'Причина обращения', max_length=150, blank=True)
     city = models.CharField(u'Город', max_length=150, blank=True)
     phone = models.CharField(u'Телефон', max_length=150, blank=True)
     email = models.EmailField(u'Email', blank=True)
@@ -103,6 +104,7 @@ class Feedback(models.Model):
         subject=u'Поступила новая заявка с сайта',
     
         body_templ="""Поступила новая заявка с сайта (по форме обратной связи)\n
+            № заказа или причина - {{ f.reason }}
             Контактное лицо - {{ f.fio }}
             Телефон - {{ f.phone }}
             Емейл - {{ f.email }}
