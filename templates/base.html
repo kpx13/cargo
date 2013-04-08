@@ -132,44 +132,6 @@
     </div>
 </div>
 
-{% comment %}
-<div id="calc_dialog" title='Расчет расстояния'  style='display: none'>
-    <div class="b-feedback__form">
-        <form action="#" method="post">
-            <table class="table-form">
-                <tr>
-                    <td width="144">От:
-                    <td><input type="text" id="start" value="Москва"/>
-</td>
-                </tr>
-                
-                <tr>
-                    <td width="144">До:</td>
-                    <td><input type="text" id="end" value="Рязань"/>
-</td>
-                </tr>
-                
-                <tr>
-                    <td width="144">Расстояние, км:</td>
-                    <td><input type="text" id="resultDistance" value="" class="inp" readonly=""/>
-</td>
-                </tr>
-
-                <tr>
-                    <td>
-
-                    </td>
-                    <td>
-                        <p><input class="feedback__btn" type="button" id="calc_button" value="Посчитать"></p>
-                    </td>
-                </tr>
-            </table>
-            {% csrf_token %}
-        </form>
-    </div>
-</div>
-{% endcomment %}
-
 
 <div class="l-wrapper">
         <header class="b-header">
@@ -209,7 +171,7 @@
                     <span class="b-payment__title">Мы принимаем</span>
                 </div>
                 <div class="b-distance">
-                    <a class="b-distance__title" href="#">Рассчитать расстояние между городами</a>
+                    <a class="b-distance__title" href="/page/clac">Рассчитать расстояние между городами</a>
                 </div>
                 <div class="b-feedback-1">
                     <a href="#feedback_dialog" id='feedback_dialog_btn' class="b-feedback__title">Обратная связь</a>
