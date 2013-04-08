@@ -2,7 +2,6 @@ body{
     height:100%; 
 }
 
-
 .l-wrapper{
     width:1024px;
     margin:0 auto;
@@ -37,7 +36,6 @@ body{
     height:50px;
     background:url("../img/slogan.jpg") no-repeat left bottom;
     display:inline-block;
-    margin-right:30px;
     vertical-align:top;
     margin-top:20px;
     }
@@ -597,3 +595,16 @@ background:url(../img/item3.jpg) no-repeat 20px 20px;
     padding-bottom:15px;
     text-align: left;
 }
+
+#feedback_dialog .b-feedback__form, #calc_dialog .b-feedback__form{
+    padding-top:10px;
+}
+
+#feedback_dialog textarea{
+    width:185px;
+}
+
+#feedback_dialog input{
+    width:185px;
+}
+
