@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+
+{% block head_script %}
+    {{ header_content|safe }}
+{% endblock %}
+
 {% block content %}
         <h3 class="content-title">{{ title }}</h3>
         <div class='content-container'>
