@@ -300,7 +300,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#df595c', end
     padding-right:70px;
 }
 .b-slider-item2 .b-slider__text{
-    padding-right:35px;
+    padding-right:25px;
+    
 }
 
 .b-slider-item1{
@@ -337,8 +338,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#df595c', end
 }
 .b-slider-item2 .b-slider__title{
     line-height:25px;
-    font-size: 24px;
-    margin-bottom:35px;
+    font-size: 20px;
+    margin-bottom:0px;
 }
 .b-slider-item1 .b-slider__title{
     margin-bottom:20px;
