@@ -2,17 +2,21 @@
 <html>
     <head>
           <meta charset="utf-8">
-          <title></title>
+          <title>{% block title %}Грузоперевозки cargoexpresstrans{% endblock %}</title>
           <meta name="description" content="" />
           <meta name="keywords" content="" />
           <link rel="stylesheet" href="/static/styles/style.css">
           <link rel="stylesheet" href="/static/styles/reset.css">
-          <script src="/static/js/script.js"></script>
+          
           <link href="/static/css/custom-theme/jquery-ui-1.10.2.custom.css" rel="stylesheet">
-        <script src="/static/js/jquery-1.9.1.js"></script>
-        <script src="/static/js/jquery-ui-1.10.2.custom.js"></script>
+            <script src="/static/js/jquery-1.9.1.js"></script>
+            {% block jquery %}
+                
+                <script src="/static/js/jquery-ui-1.10.2.custom.js"></script>
+                
+                <script src="/static/js/script.js"></script>
             <script>
-           
+        
             $(function() {
                 {% if messages %} 
                     $( "#messages_dialog" ).dialog();
@@ -23,8 +27,11 @@
                  $("#director_dialog_btn").click(function(){ $( "#director_dialog" ).dialog('open');  });
                 });
             
-            
             </script>
+            
+            
+            {% endblock %}
+            
             
             {% block head_script %}
             {% endblock %}
@@ -174,14 +181,16 @@
                     <span class="b-payment__title">Мы принимаем</span>
                 </div>
                 <div class="b-distance">
-                    <a class="b-distance__title" href="/page/calc">Рассчитать расстояние между городами</a>
+                    <a class="b-distance__title" href="/calc">Рассчитать расстояние между городами</a>
                 </div>
+                {% block feedback %}
                 <div class="b-feedback-1">
                     <a href="#feedback_dialog" id='feedback_dialog_btn' class="b-feedback__title">Обратная связь</a>
                 </div>
                 <div class="b-feedback-2">
                     <a href="#director_dialog" id='director_dialog_btn' class="b-feedback__title">Письмо директору</a>
                 </div>
+                {% endblock %}
                 <div class="sidebar__list">
                     <a class="sidebar__link" href="/page/terminology">терминология доставки</a>
                     <a class="sidebar__link" href="/page/tips">полезные советы</a>

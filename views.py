@@ -49,6 +49,10 @@ def rates_page(request, page_id):
     c.update(rates.views.get_page(page_id))
     return render_to_response('rates.html', c, context_instance=RequestContext(request))
 
+def calc_page(request):
+    c = get_common_context(request)
+    return render_to_response('calc.html', c, context_instance=RequestContext(request))
+
 def get_page(request, page_name):
     c = get_common_context(request)
     page = pages.views.get_page(page_name)
