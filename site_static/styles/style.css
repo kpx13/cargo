@@ -287,6 +287,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#df595c', end
     color:#000000;
     position:relative;
 }
+.b-slider-item4{
+    background:url("../img/newslider_1.jpg") no-repeat 40px 10px;
+}
 .b-slider-item3{
     background:url("../img/map.jpg") no-repeat 40px 37px;
 }
@@ -316,11 +319,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#df595c', end
     background:url("../img/slider-nav.png") no-repeat 0 0;
     cursor:pointer;
 }
+.b-slider-prev1{
+    right:128px;
+}
 .b-slider-prev2{
     right:103px;
 }
-.b-slider-prev1{
-    right:128px;
+.b-slider-prev4{
+    right:53px;
 }
 .b-slider-nav a.active:hover{
     cursor:default;}
