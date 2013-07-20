@@ -614,3 +614,66 @@ background:url(../img/item3.jpg) no-repeat 20px 20px;
 #feedback_dialog input{
     width:185px;
 }
+
+
+.lk__btn, .lk-login button{
+    display:inline-block;
+    vertical-align:top;
+    text-transform:uppercase;
+    height:28px;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 180px;
+    font-size:11.25px;
+    font-weight: bold;
+    margin-top:9px;
+    line-height:24px;
+    border-radius:3px;
+    background: #df595c;
+    color:#ffffff;
+background: -moz-linear-gradient(top,  #df595c 0%, #cb282c 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#df595c), color-stop(100%,#cb282c));
+background: -webkit-linear-gradient(top,  #df595c 0%,#cb282c 100%);
+background: -o-linear-gradient(top,  #df595c 0%,#cb282c 100%);
+background: -ms-linear-gradient(top,  #df595c 0%,#cb282c 100%);
+background: linear-gradient(to bottom,  #df595c 0%,#cb282c 100%);
+}
+.lk__btn a{
+    margin-top: 3px;
+    padding-left: 30px;
+    background:url("../img/key.png") no-repeat 10px center;
+    color:#ffffff;
+    display:block;
+    text-decoration:none;
+}
+
+.lk-login
+{
+    background-color: #eee; 
+    text-align: center; 
+    padding: 10px;
+    
+}
+
+.lk-login input[type="text"], .lk-login input[type='password']{
+    width:170px;
+    height:20px;
+    padding: 0 10px;
+    border: none;
+    background-color: white;
+    margin: 4px;
+}
+
+.lk-login a
+{
+    font-size:12px;
+    line-height:18px;
+    color: #cb282c;
+    margin: 3px;
+}
+
+.lk-login button{
+        border: none;
+        height: 23px;
+        width: 190px;
+}

@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 
     url(r'^$', views.home_page),
+    url(r'^lk$', views.lk_page),
     url(r'^rates/(?P<page_id>\w+)$',    views.rates_page,   name='rates_page'),
     url(r'^page$' , 'views.page'),
     url(r'^page/(?P<page_name>\w+)$' , views.get_page,     name='static_page'),

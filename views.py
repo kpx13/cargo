@@ -44,6 +44,12 @@ def home_page(request):
     
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
+def lk_page(request):
+    c = get_common_context(request)
+    c['rates'] = rates.views.get_rates()
+    c.update(pages.views.get_page('home'))
+    return render_to_response('lk.html', c, context_instance=RequestContext(request))
+
 def rates_page(request, page_id):
     c = get_common_context(request)
     c.update(rates.views.get_page(page_id))

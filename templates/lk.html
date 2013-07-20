@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block head_script %}
+{% endblock %}
+
+
+{% block content %}
+                <div class="b-slider">
+                    <ul class="b-slider-inner">
+                        <a href="/order" class="link"><li class="b-slider-item b-slider-item1">
+                                <span class="b-slider__title">Быстрое оформление заказа на экспресс-доставку почты и других отправлений</span>
+                                <p class="b-slider__text">Заполните форму Экспресс-Заказ и наши операторы свяжутся с вами в кратчайшие сроки, оформят заказ.</p>
+                                <p class="b-slider__text">Экспресс-почта, посылки и грузы будут доставлены в указанный срок.</p>
+                                <p class="b-slider__text">Срочная доставка по Москве и Петербургу - с нами это реально!</p>
+                                
+                        </li></a>
+                        <li class="b-slider-item b-slider-item2">
+                            <span class="b-slider__title">Добро пожаловать в компанию Карго Экспресс</span>
+                                <p class="b-slider__text">Мы обеспечиваем четкость и организованность при выполнении каждого звонка клиента;</p>
+<p class="b-slider__text">Мы предоставляем оптимальное соотношение цены и сроков, при высоком качестве;</p>
+<p class="b-slider__text">Мы, постоянно совершенствуем уровень сервиса, разрабатывая и внедряя новейшие технологии в комплекс предоставляемых услуг;</p>
+<p class="b-slider__text">Мы привлекаем в компанию людей, способных проявлять инициативу и творческий подход к работе, создаем условия для укрепления командного духа, повышаем профессионализм нашей команды и высоко оцениваем личный вклад каждого;</p>
+<p class="b-slider__text">Мы делаем все для того, чтобы стать признанным лидером на рынке грузоперевозок и курьерских услуг, что приведет к процветанию нашего дела, сотрудников, партнеров и общества, в котором живем;</p>
+                        </li>
+                        <a href="/page/courier_moscow_spb"><li class="b-slider-item b-slider-item3">
+                                <span class="b-slider__title">Москва - Санкт Петербург - Москва - <span class="m-slider__title">один день!</span></span>
+                                <p class="b-slider__text">Срочная доставка из Москвы в Санкт-Петербург и обратно всего за один день!</p>
+                                <span class="city-1">Санкт-Петербург</span>
+                                <span class="city-2">Москва</span>
+                        </li></a>
+                        <li class="b-slider-item b-slider-item4">
+                            <span class="b-slider__title">Тариф МЭЙЛ</span>
+                            <p class="b-slider__text">МЭЙЛ отлично подходит для массовых рассылок поздравлений,счетов,приглашений и других подобных отправлений.</p>
+                        </li>
+                    </ul>
+                    <div class="b-slider-nav">
+                        <a href="#" rel="1" class="b-slider-prev1 b-slider-preview"><!----></a>
+                        <a href="#" rel="2" class="b-slider-prev2 b-slider-preview"><!----></a>
+                        <a href="#" rel="3" class="b-slider-prev3 b-slider-preview"><!----></a>
+                        <a href="#" rel="4" class="b-slider-prev4 b-slider-preview"><!----></a>
+                    </div>
+                </div>
+                
+                <div class='content-container'>
+                    <div class='lk-login'>
+                        <form method="GET" action='/page/login'>
+                            <h3 class="content-title">Войти в личный кабинет</h3>
+                            <table style='margin: 0 auto;'>
+                                <tr>
+                                    <td><input type='text' placeholder='Логин' name='login'></td>
+                                    <td><input type='password' placeholder='Пароль' name='password'></td>
+                                </tr>
+                                <tr>
+                                    <td><button type='submit' >Вход</button>
+                                    <td>
+                                        <a href='/page/forgot'>Забыли пароль?</a>
+                                        <a href='/page/register'>Регистрация</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+{% endblock %}
