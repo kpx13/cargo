@@ -310,6 +310,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#df595c', end
 .b-slider-item1{
     background:url("../img/slide2.jpg") no-repeat 20px 0px;
 }
+
+.b-slider-item6{
+    background:url("../img/slide2.png") no-repeat 20px 0px;
+}
 .b-slider-preview{
     position:absolute;
     right:78px;
@@ -320,12 +324,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#df595c', end
     cursor:pointer;
 }
 .b-slider-prev1{
-    right:128px;
+    right:178px;
 }
 .b-slider-prev2{
-    right:103px;
+    right:153px;
+}
+.b-slider-prev3{
+    right:128px;
 }
 .b-slider-prev4{
+    right:103px;
+}
+.b-slider-prev6{
     right:53px;
 }
 .b-slider-nav a.active:hover{
