@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /feedback
+Disallow: /page/offers
+Disallow: /order
+Disallow: /news/*
+Sitemap: http://cargoexpresstrans.ru/sitemap.xml

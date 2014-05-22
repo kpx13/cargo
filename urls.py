@@ -11,6 +11,9 @@ import views
 urlpatterns = patterns('',
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    url(r'^(robots.txt)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    url(r'^(sitemap.xml)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    url(r'^(google8041822f97cc6728.html)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 
     url(r'^$', views.home_page),
     url(r'^lk$', views.lk_page),
